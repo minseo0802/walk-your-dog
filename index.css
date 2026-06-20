@@ -1,0 +1,1038 @@
+/* CSS variables for a cute, premium dog-themed pastel palette */
+:root {
+  --bg-app: #FAF6F0; /* Soft warm cream */
+  --bg-card: #FFFFFF;
+  --text-main: #4E3E38; /* Soft charcoal-brown */
+  --text-muted: #8E7A71;
+  --color-primary: #F29E8D; /* Soft coral/salmon pink */
+  --color-primary-hover: #E38875;
+  --color-secondary: #FFF1E6; /* Light cream yellow */
+  --color-accent-pink: #F8D3D3; /* Pastel pink */
+  --color-accent-yellow: #FBE6B3; /* Pastel yellow */
+  --color-accent-green: #D7ECD9; /* Pastel green */
+  --color-accent-blue: #D6E4F0; /* Pastel blue */
+  --border-cute: 2px solid #EEDCD3;
+  --border-dashed: 2px dashed #EEDCD3;
+  --shadow-soft: 0 10px 25px rgba(78, 62, 56, 0.05);
+  --shadow-hover: 0 15px 30px rgba(78, 62, 56, 0.1);
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-sm: 10px;
+  --font-cute: 'Fredoka', 'Nunito', 'Noto Sans KR', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-cute);
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  height: 100vh;
+  overflow: hidden;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* App Layout Grid */
+.app-container {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  height: 100vh;
+}
+
+/* 1. Sidebar Styling */
+.sidebar {
+  background-color: #FFFDF9;
+  border-right: var(--border-dashed);
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.logo-area {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.app-logo-img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 4px solid var(--color-primary);
+  background-color: var(--color-secondary);
+  object-fit: cover;
+  margin-bottom: 12px;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.app-logo-img:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.logo-area h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.logo-area h1 span {
+  color: var(--color-primary);
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+.nav-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 14px 20px;
+  font-family: var(--font-cute);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-main);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.25s ease;
+}
+
+.nav-icon {
+  margin-right: 12px;
+  font-size: 18px;
+}
+
+.nav-item:hover {
+  background-color: var(--color-secondary);
+  transform: translateX(5px);
+  color: var(--color-primary-hover);
+}
+
+.nav-item.active {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  box-shadow: 0 8px 16px rgba(242, 158, 141, 0.3);
+}
+
+.sidebar-footer {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-muted);
+  border-top: 1px dashed #EEDCD3;
+  padding-top: 20px;
+}
+
+/* 2. Main Content Styling */
+.main-content {
+  padding: 40px;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.tab-panel {
+  display: none;
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.panel-header {
+  margin-bottom: 30px;
+}
+
+.panel-header h2 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.panel-header p {
+  color: var(--text-muted);
+  font-size: 15px;
+}
+
+/* Card Styling */
+.card {
+  background-color: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: var(--border-cute);
+  padding: 30px;
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 25px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  border: 2px solid #EEDCD3;
+  font-family: var(--font-cute);
+  font-size: 14px;
+  color: var(--text-main);
+  background-color: #FFFDFB;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(242, 158, 141, 0.15);
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* Cute Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  font-family: var(--font-cute);
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  outline: none;
+}
+
+.btn:active {
+  transform: scale(0.93);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  box-shadow: 0 6px 12px rgba(242, 158, 141, 0.25);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.btn-secondary {
+  background-color: #EFE8E2;
+  color: var(--text-main);
+}
+
+.btn-secondary:hover {
+  background-color: #E2D7CF;
+}
+
+.btn-danger {
+  background-color: #F8B3B3;
+  color: #8C2C2C;
+}
+
+.btn-danger:hover {
+  background-color: #F59A9A;
+}
+
+.btn-block {
+  display: flex;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Profile Tab Layout */
+.profile-layout {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.dogs-list-container h3 {
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.dogs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Dog Card UI */
+.dog-card {
+  background-color: #FFFFFF;
+  border: var(--border-cute);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.dog-card:hover {
+  transform: translateY(-5px);
+}
+
+.dog-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background-color: var(--color-primary);
+}
+
+.dog-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.dog-card-name {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.dog-card-breed {
+  display: inline-block;
+  background-color: var(--color-secondary);
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-primary-hover);
+  margin-bottom: 15px;
+}
+
+.dog-card-info {
+  margin-bottom: 15px;
+  font-size: 13.5px;
+}
+
+.dog-card-info p {
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dog-card-goal {
+  border-top: 1px dashed #EEDCD3;
+  padding-top: 12px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.dog-card-goal strong {
+  color: var(--text-main);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.dog-card-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.btn-icon {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  font-size: 15px;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-icon:hover {
+  background-color: var(--color-secondary);
+}
+
+/* Empty State Styling */
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #FFFDFB;
+  border-radius: var(--radius-lg);
+  border: 2px dashed #EEDCD3;
+  color: var(--text-muted);
+}
+
+.empty-icon {
+  font-size: 50px;
+  display: block;
+  margin-bottom: 15px;
+}
+
+/* 3. Timer Page UI */
+.timer-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+@media(max-width: 900px) {
+  .timer-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dog-select-area {
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.dog-select-area label {
+  font-size: 15px;
+}
+
+.cute-select {
+  border-width: 2px;
+  font-size: 16px;
+  border-color: #EEDCD3;
+  background-color: #FFFDFB;
+  border-radius: var(--radius-md);
+  padding: 14px 20px;
+  cursor: pointer;
+}
+
+.timer-display-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 35px;
+}
+
+.timer-circle {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  border: 10px solid var(--color-secondary);
+  outline: 6px dashed var(--color-primary);
+  outline-offset: 4px;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 20px rgba(242, 158, 141, 0.05), var(--shadow-soft);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.timer-circle.active {
+  animation: pulseOuter 2s infinite;
+  border-color: var(--color-accent-pink);
+  outline-color: var(--color-primary);
+}
+
+@keyframes pulseOuter {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(242, 158, 141, 0.4), var(--shadow-soft); }
+  70% { transform: scale(1.02); box-shadow: 0 0 0 15px rgba(242, 158, 141, 0), var(--shadow-soft); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(242, 158, 141, 0), var(--shadow-soft); }
+}
+
+.timer-time {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+}
+
+.timer-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.timer-controls {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-start {
+  background-color: var(--color-primary);
+  color: white;
+  font-size: 18px;
+  padding: 16px 45px;
+  border-radius: 50px;
+  box-shadow: 0 8px 20px rgba(242, 158, 141, 0.35);
+}
+
+.btn-start:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-2px);
+}
+
+.btn-stop {
+  background-color: #E96479; /* Vibrant cute pink-red */
+  color: white;
+  font-size: 18px;
+  padding: 16px 45px;
+  border-radius: 50px;
+  box-shadow: 0 8px 20px rgba(233, 100, 121, 0.35);
+}
+
+.btn-stop:hover {
+  background-color: #D64E63;
+  transform: translateY(-2px);
+}
+
+.walk-details-card {
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.walk-summary-badge {
+  background-color: var(--color-accent-pink);
+  color: #8C2C2C;
+  font-weight: 800;
+  padding: 12px 18px;
+  border-radius: var(--radius-md);
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 25px;
+  display: inline-block;
+  width: 100%;
+}
+
+.paw-records-container {
+  margin-bottom: 25px;
+}
+
+.paw-records-label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.paw-checkbox-row {
+  display: flex;
+  gap: 20px;
+}
+
+.paw-checkbox-wrapper {
+  position: relative;
+  flex: 1;
+}
+
+/* HIDE DEFAULT CHECKBOX */
+.paw-checkbox-input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* CUTE PAW CHECKBOX LABEL */
+.paw-checkbox-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  background-color: #FFFDFB;
+  border: 2px solid #EEDCD3;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.paw-icon {
+  width: 44px;
+  height: 44px;
+  fill: #D8C7BD; /* Grayish beige by default */
+  margin-bottom: 8px;
+  transition: fill 0.25s, transform 0.25s;
+}
+
+.paw-checkbox-label:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-primary);
+  background-color: var(--color-secondary);
+}
+
+.paw-checkbox-label:hover .paw-icon {
+  fill: var(--color-primary);
+}
+
+/* CHECKED STATE WITH CUTE BOUNCE */
+@keyframes pawBounce {
+  0% { transform: scale(1); }
+  35% { transform: scale(1.3) rotate(-10deg); }
+  70% { transform: scale(0.9) rotate(5deg); }
+  100% { transform: scale(1); }
+}
+
+.paw-checkbox-input:checked + .paw-checkbox-label {
+  background-color: var(--color-secondary);
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 15px rgba(242, 158, 141, 0.15);
+}
+
+.paw-checkbox-input:checked + .paw-checkbox-label .paw-icon {
+  animation: pawBounce 0.45s ease;
+  fill: #E96479; /* Vibrant coral pink paw! */
+}
+
+/* 4. Calendar Tab UI */
+.calendar-filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  margin-bottom: 25px;
+}
+
+.calendar-filters .filter-group {
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.calendar-filters .cute-select {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.calendar-month-selector {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.btn-month-nav {
+  background: var(--color-secondary);
+  border: 2px solid #EEDCD3;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: var(--text-main);
+  transition: all 0.2s;
+}
+
+.btn-month-nav:hover {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+/* Stats Cards */
+.stats-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.stats-card {
+  border-radius: var(--radius-lg);
+  border: var(--border-cute);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: var(--shadow-soft);
+}
+
+.stats-icon {
+  font-size: 32px;
+  width: 55px;
+  height: 55px;
+  border-radius: var(--radius-md);
+  background-color: #FFFFFF;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+.stats-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.stats-num {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.stats-label {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.pink-theme { background-color: var(--color-accent-pink); }
+.yellow-theme { background-color: var(--color-accent-yellow); }
+.beige-theme { background-color: var(--color-secondary); }
+
+/* Calendar Grid */
+.calendar-card {
+  padding: 20px;
+}
+
+.calendar-grid-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text-muted);
+  border-bottom: 1px dashed #EEDCD3;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+}
+
+.calendar-grid-header div:first-child { color: #E96479; } /* Sun */
+.calendar-grid-header div:last-child { color: var(--color-primary-hover); } /* Sat */
+
+.calendar-days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: 95px;
+  gap: 10px;
+}
+
+.calendar-day {
+  background-color: #FFFDFB;
+  border: 1px solid #F3ECE6;
+  border-radius: var(--radius-md);
+  padding: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.2s;
+}
+
+.calendar-day:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(78, 62, 56, 0.04);
+  border-color: var(--color-primary);
+}
+
+.calendar-day-num {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text-main);
+}
+
+.calendar-day.prev-month .calendar-day-num,
+.calendar-day.next-month .calendar-day-num {
+  color: #D3C3BC;
+}
+
+.calendar-day.sunday .calendar-day-num { color: #E96479; }
+.calendar-day.saturday .calendar-day-num { color: var(--color-primary-hover); }
+
+/* Today ring */
+.calendar-day.today {
+  border: 2px solid var(--color-primary);
+  background-color: var(--color-secondary);
+}
+
+/* Day Walk Paw Badges */
+.calendar-paws-container {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.calendar-paw-badge {
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+  box-shadow: 0 2px 5px rgba(242, 158, 141, 0.4);
+}
+
+.calendar-paw-badge:hover {
+  transform: scale(1.2);
+}
+
+.calendar-paw-svg {
+  width: 14px;
+  height: 14px;
+  fill: #FFFFFF;
+}
+
+/* Calendar Details Popup */
+.day-walk-details-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(78, 62, 56, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.popup-content {
+  width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  border-radius: var(--radius-lg);
+  margin-bottom: 0; /* Override card margin */
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+  animation: popupScale 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes popupScale {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px dashed #EEDCD3;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.popup-header h4 {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.btn-close {
+  background: transparent;
+  border: none;
+  font-size: 26px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.btn-close:hover {
+  color: var(--color-primary-hover);
+}
+
+.popup-walks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.popup-walk-item {
+  background-color: var(--bg-app);
+  border: 1px solid #EEDCD3;
+  border-radius: var(--radius-md);
+  padding: 16px;
+}
+
+.popup-walk-item-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 13.5px;
+  font-weight: 700;
+}
+
+/* 5. History Page UI */
+.history-filters {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 15px 30px;
+  margin-bottom: 25px;
+}
+
+.history-filters .filter-group {
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Walk Record Card */
+.walk-card {
+  background-color: #FFFFFF;
+  border: var(--border-cute);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.walk-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+.walk-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dashed #EEDCD3;
+  padding-bottom: 12px;
+}
+
+.walk-card-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.walk-card-dog-name {
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--text-main);
+}
+
+.walk-card-date {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.walk-card-details-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.walk-card-detail-label {
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.walk-card-detail-val {
+  color: var(--text-main);
+}
+
+.walk-card-paw-stamp {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--color-secondary);
+  border: 1px solid #EEDCD3;
+  padding: 4px 10px;
+  border-radius: 30px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #E96479;
+  gap: 6px;
+}
+
+.walk-card-paw-stamp.inactive {
+  background-color: #F8F5F2;
+  border-color: #E6E1DC;
+  color: #C3B091;
+}
+
+.walk-card-paw-stamp svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.walk-card-actions {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}

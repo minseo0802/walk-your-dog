@@ -1,0 +1,15 @@
+{
+  "name": "dog-walking-tracker",
+  "version": "1.0.0",
+  "description": "A cute multi-dog walking tracker Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^31.0.0"
+  }
+}
